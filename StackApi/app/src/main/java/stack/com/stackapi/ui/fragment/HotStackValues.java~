@@ -32,43 +32,45 @@ import stack.com.stackapi.adapter.QuestionListAdapter;
 import stack.com.stackapi.api.RetrofitRequestHelper;
 import stack.com.stackapi.utils.AppConstants;
 
-public class InterstingStackValues extends Fragment {
+/**
+ * Created by DineshBabuG on 3/7/2016.
+ */
+public class HotStackValues extends Fragment {
     private ProgressWheel progressWheel;
-    private RecyclerView activeRecyler;
+    private RecyclerView hotQuestionData;
     private QuestionListAdapter postListAdapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.active_stackdatalist, container, false);
-    }
+        return inflater.inflate(R.layout.hot_stackdatalist, container, false);
+}
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         progressWheel = (ProgressWheel)view.findViewById(R.id.progress_wheel);
         progressWheel.stopSpinning();
-        activeRecyler = (RecyclerView) view.findViewById(R.id.active_list_recyler);
-        activeRecyler.setLayoutManager(new LinearLayoutManager(activeRecyler.getContext()));
+        hotQuestionData = (RecyclerView) view.findViewById(R.id.hot_list_recyler);
+        hotQuestionData.setLayoutManager(new LinearLayoutManager(hotQuestionData.getContext()));
         postListAdapter = new QuestionListAdapter();
-        activeRecyler.setAdapter(postListAdapter);
+        hotQuestionData.setAdapter(postListAdapter);
         if(AppConstants.isInternetAvailable(getActivity())) {
-            getActiveQuestions();
+            getQuestionDetails();
         }else{
             Toast.makeText(getActivity(), getString(R.string.internet), Toast.LENGTH_SHORT).show();
         }
     }
 
     /**
-     * Get the Active Questions
+     * Get the Questions on Hot Categories
      */
-    private void getActiveQuestions() {
+    private void getQuestionDetails() {
         progressWheel.spin();
         HashMap<String,String> userCredentials=new HashMap<>();
-        userCredentials.put(AppConstants.CommonAPI.ORDER, AppConstants.CommonAPI.DESC);
-        userCredentials.put(AppConstants.CommonAPI.SORT, AppConstants.CommonAPI.ACTIVE);
-        userCredentials.put(AppConstants.CommonAPI.SITE, AppConstants.CommonAPI.STACKOVERFLOW);
+        userCredentials.put(AppConstants.CommonAPI.ORDER,AppConstants.CommonAPI.DESC);
+        userCredentials.put(AppConstants.CommonAPI.SORT,AppConstants.CommonAPI.HOT);
+        userCredentials.put(AppConstants.CommonAPI.SITE,AppConstants.CommonAPI.STACKOVERFLOW);
         new RetrofitRequestHelper().getInstance().getAnswerDetails(userCredentials, new Callback<String>() {
             @Override
             public void success(String continentResponse, Response response) {

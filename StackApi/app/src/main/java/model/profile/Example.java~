@@ -1,16 +1,12 @@
-/**
- * @category DineshSample
- * @author Dinesh <dineshbabu341@gmail.com>
- * @license http://www.apache.org/licenses/LICENSE-2.0
- */
-package model.question;
+
+package model.profile;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class QuestionStackResponse {
+public class Example {
 
     @SerializedName("items")
     @Expose

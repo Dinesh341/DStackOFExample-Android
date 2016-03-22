@@ -1,3 +1,8 @@
+/**
+ * @category DineshSample
+ * @author Dinesh <dineshbabu341@gmail.com>
+ * @license http://www.apache.org/licenses/LICENSE-2.0
+ */
 package stack.com.stackapi.ui.fragment;
 
 import android.os.Bundle;
@@ -27,9 +32,7 @@ import stack.com.stackapi.adapter.QuestionListAdapter;
 import stack.com.stackapi.api.RetrofitRequestHelper;
 import stack.com.stackapi.utils.AppConstants;
 
-/**
- * Created by DineshBabuG on 3/7/2016.
- */
+
 public class HotStackValues extends Fragment {
     private ProgressWheel progressWheel;
     private RecyclerView hotQuestionData;

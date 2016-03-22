@@ -1,4 +1,8 @@
-
+/**
+ * @category DineshSample
+ * @author Dinesh <dineshbabu341@gmail.com>
+ * @license http://www.apache.org/licenses/LICENSE-2.0
+ */
 package model.profile;
 
 import java.util.ArrayList;
