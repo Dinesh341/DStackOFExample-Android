@@ -1,0 +1,36 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.CountryBasedPost">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/vote_list_recyler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/post_row_items" />
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:id="@+id/progress_wheel"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        wheel:matProg_barColor="#5588FF"
+        android:layout_gravity="center"
+        wheel:matProg_progressIndeterminate="true" />
+    <TextView
+        android:id="@+id/notavailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="17sp"
+        android:textColor="@color/colorAccent"
+        android:text="Question Not Available"
+        android:visibility="invisible"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
+
+
